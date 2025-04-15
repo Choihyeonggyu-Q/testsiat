@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- query mapper -->
+<mapper namespace = "com.siat.testsiat.test.dao.TestMapper">
+    <insert id="insertRow"
+            parameterType="todoRequestDTO">
+        <selectKey order="before" KeyProperty="seq" resultType="java.lang.Integer">
+
+        </selectKey>
+        
+        INSERT INTO JDBC_TODO_TBL(SEQ, TITLE, CONTENT, PRIORITY)
+        VALUES(JDBC_SEQ.NEXTVAL,#{title},#{content},#{priority})
+    </insert>
+
+    
+    <select id="selectRow"
+            resultType="todoResponseDTO">
+        SELECT SEQ, TITLE, CONTENT, STARTDATE, STATUS, ENDDATE, PRIORITY
+        FROM JDBC_TODO_TBL
+    </select>
+
+    <update id="updateRow"
+            parameterType="java.util.Map">
+        UPDATE JDBC_TODO_TBL 
+        SET CONTENT = #{content}, STATUS = #{status} 
+        WHERE SEQ = #{seq}
+    </update>
+
+    <delete id="deleteRow"
+            parameterType="java.lang.Integer">
+        DELETE FROM JDBC_TODO_TBL
+        WHERE SEQ = #{seq}
+    </delete>
+
+    <select id="readRow"
+            parameterType="java.lang.Integer"
+            resultType="todoResponseDTO">
+        SELECT  *
+        FROM    JDBC_TODO_TBL
+        WHERE   SEQ = #{seq}
+    </select>
+</mapper>
