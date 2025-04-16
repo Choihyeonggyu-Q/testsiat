@@ -18,7 +18,7 @@ IOC(Inversion of Control)
 - @RequestMapping
 
 의존성 관리를 위한 Annotaion
-- @Autowired, @Inject, @Resource, @Qualifier
+- @Autowired, @Inject, @Resource, @Qualifier, @RestController
 */
 @Controller
 // user endpoint : http:// ip:port / context / test
@@ -34,7 +34,7 @@ public class TestCtrl {
     public String insert(){
         System.out.println("debug >> Ctrl insert");
         System.out.println("debug >> Ctrl inject : " + service);
-        service.testService();
+        // service.testService();
         return "insert"; // 논리적 페이지를 분기시킨 리턴
     }
     
