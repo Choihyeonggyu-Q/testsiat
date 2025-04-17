@@ -51,7 +51,7 @@ public class TodoCtrl {
 
     // url query 방식 endpoint: http://ip:port/todo/read?seq=1
     @GetMapping("/read")
-    public String read(@RequestParam int seq, Model model) {
+    public String read(@RequestParam("seq") int seq, Model model) {
         System.out.println("debug > read " + seq);
         TodoResponseDTO response = service.readService(seq);
         model.addAttribute("read", response);

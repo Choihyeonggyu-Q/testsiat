@@ -1,5 +1,6 @@
 package com.siat.testsiat.test.model.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,6 +14,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @Setter
 @AllArgsConstructor
+@Schema(description = "Todo 요청")
 public class TodoRequestDTO {
     private String title;
     private String content;

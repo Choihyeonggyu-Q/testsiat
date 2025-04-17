@@ -4,7 +4,11 @@
 <!-- 설정 -->
 <configuration>
     <typeAliases>
+        <!-- todo -->
         <typeAlias alias="todoRequestDTO" type="com.siat.testsiat.test.model.dto.TodoRequestDTO"/>
         <typeAlias alias="todoResponseDTO" type="com.siat.testsiat.test.model.dto.TodoResponseDTO"/>
+        <!-- user -->
+        <typeAlias alias="userRequestDTO" type="com.siat.testsiat.user.model.domain.UserRequestDTO"/>
+        <typeAlias alias="userResponseDTO" type="com.siat.testsiat.user.model.domain.UserResponseDTO"/>
     </typeAliases>
 </configuration>
