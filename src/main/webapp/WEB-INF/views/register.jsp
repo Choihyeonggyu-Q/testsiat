@@ -9,11 +9,16 @@
 </head>
 <body>
 		${ UserSession.name } 님 환영합니다.
-		<form action = "../todo/insert"  		method= "post">
-				<input type = "text"  			name = "title">
-				<input type = "text"  			name = "content">
-				<input type = "number"  		name = "priority"  min = "1" max = "10">
-				<input type = "submit"  		name = "작성하기">
+		<form action = "../valid/insert"  		method= "post">
+			<input type = "text"  			name = "title"><br/>
+			${validError.title}<br/>
+			<input type = "text"  			name = "content"><br/>
+			${validError.content}<br/>
+			<input type = "number"  		name = "priority"><br/>
+			${validError.priority}<br/>
+			<input type = "text"			name = "phone"><br/>
+			${validError.phone}<br/>
+			<input type = "submit"  		name = "작성하기">
 		</form>
 </body>
 </html>
