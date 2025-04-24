@@ -55,5 +55,28 @@ public class ReactCtrl {
          
          return new ResponseEntity<List<TodoResponseDTO>>(list, HttpStatus.OK);
      }
+
+     @GetMapping("/delete")
+     public ResponseEntity<String> delete(@RequestParam("seq") int seq){
+         System.out.println("debug > todo ctrl/delete ->" + seq);
+         int flag = service.deleteService(seq);
+         if(flag != 0){
+             return new ResponseEntity<>("삭제 성공",HttpStatus.NO_CONTENT);
+         }else{
+             return new ResponseEntity<>("삭제 실패",HttpStatus.BAD_REQUEST);
+         }
+ 
+     }
+
+     @GetMapping("/read")
+    public ResponseEntity<TodoResponseDTO> read(@RequestParam("seq") int seq) {
+        System.out.println("debug > read " + seq);
+        TodoResponseDTO response = service.readService(seq);
+        if(response != null){
+            return new ResponseEntity<>(response, HttpStatus.OK);    
+        }else{
+            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        }
+    }
     
 }
